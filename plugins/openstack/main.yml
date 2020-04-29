@@ -1,4 +1,10 @@
 ---
+- name: Set localhost python interpreter
+  hosts: localhost
+  tasks:
+    - set_fact:
+        ansible_python_interpreter: "{{ansible_playbook_python}}"
+
 - import_playbook: cleanup.yml
   when: provision.cleanup|default(False)
 
